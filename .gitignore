@@ -4,3 +4,4 @@
 # Ignora backups o archivos temporales
 *.rs.bk
 *.swp
+*.lock
