@@ -59,5 +59,13 @@ fn main() {
     framebuffer.set_current_color(Color::WHITE);
     draw_polygon(&mut framebuffer, &poly4);
 
+    // El agujero 
+    let poly5 = vec![(682, 175), (708, 120), (735, 148), (739, 170)]
+        .into_iter()
+        .map(|(x, y)| Vector2::new(x as f32, (height - y) as f32))
+        .collect::<Vec<_>>();
+    framebuffer.set_current_color(Color::WHITE); 
+    fill_polygon(&mut framebuffer, &poly5);
+
     framebuffer.render_to_file("out.png");
 }
