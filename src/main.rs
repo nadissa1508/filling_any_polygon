@@ -45,5 +45,19 @@ fn main() {
     framebuffer.set_current_color(Color::WHITE);
     draw_polygon(&mut framebuffer, &poly3);
 
+    // Polígono 4
+    let poly4 = vec![
+        (413, 177), (448, 159), (502, 88), (553, 53), (535, 36),
+        (676, 37), (660, 52), (750, 145), (761, 179), (672, 192),
+        (659, 214), (615, 214), (632, 230), (580, 230), (597, 215),
+        (552, 214), (517, 144), (466, 180)
+        ].into_iter()
+        .map(|(x, y)| Vector2::new(x as f32, (height - y) as f32))
+        .collect::<Vec<_>>();
+    framebuffer.set_current_color(Color::GREEN);
+    fill_polygon(&mut framebuffer, &poly4);
+    framebuffer.set_current_color(Color::WHITE);
+    draw_polygon(&mut framebuffer, &poly4);
+
     framebuffer.render_to_file("out.png");
 }
