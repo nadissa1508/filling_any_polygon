@@ -25,5 +25,15 @@ fn main() {
     framebuffer.set_current_color(Color::WHITE);
     draw_polygon(&mut framebuffer, &poly1);
 
+    // Polígono 2
+    let poly2 = vec![(321, 335), (288, 286), (339, 251), (374, 302)]
+        .into_iter()
+        .map(|(x, y)| Vector2::new(x as f32, (height - y) as f32))
+        .collect::<Vec<_>>();
+    framebuffer.set_current_color(Color::BLUE);
+    fill_polygon(&mut framebuffer, &poly2);
+    framebuffer.set_current_color(Color::WHITE);
+    draw_polygon(&mut framebuffer, &poly2);
+
     framebuffer.render_to_file("out.png");
 }
